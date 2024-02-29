@@ -4,6 +4,7 @@
 
 # Done
 ## Collaobrative Filtering
-- LightGCN : (2020, SIGIR) [Paper Link](hhttps://arxiv.org/abs/2002.02126)
-- Collaborative Similarity Embedding for Recommender System : [Paper Link](https://arxiv.org/pdf/1902.06188.pdf)
-- UltraGCN : [Paper Link](https://arxiv.org/abs/2110.15114)
+- LightGCN : (2020, SIGIR) [Simplifying and Powering Graph ConvolutionNetwork for Recommendation](hhttps://arxiv.org/abs/2002.02126)
+- CSE : [Collaborative Similarity Embedding for Recommender System](https://arxiv.org/pdf/1902.06188.pdf)
+- UltraGCN : [Ultra Simplification of Graph Convolutional Networks for Recommendation](https://arxiv.org/abs/2110.15114)
+- SimpleX : [A Simple and Strong Baseline for Collaborative Filtering](https://arxiv.org/pdf/1902.06188.pdf)

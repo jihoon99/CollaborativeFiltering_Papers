@@ -13,3 +13,7 @@
 ## Collaborative Filtering With Training Embeddings
 - RecVAE : [a New Variational Autoencoder for Top-N Recommendations with Implicit Feedback](https://arxiv.org/abs/1912.11160)
 - [Variational Autoencoders for Collaborative Filtering](https://arxiv.org/abs/1802.05814)
+
+
+## Prerequisite
+- Prerequisite of Blurring-Sharpening Process Models for Collaborative Filtering : [Scored Based Generative Modeling](https://arxiv.org/abs/2011.13456)

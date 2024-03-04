@@ -17,3 +17,4 @@
 
 ## Prerequisite
 - Prerequisite of Blurring-Sharpening Process Models for Collaborative Filtering : [Scored Based Generative Modeling](https://arxiv.org/abs/2011.13456)
+- Denoising Diffusion Probabilistic Models : [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)

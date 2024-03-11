@@ -7,7 +7,8 @@
 ## Collaobrative Filtering
 - NGCF : [Neural Graph Collaborative Filtering](https://jihoonjung.tistory.com/63) -> [explained](https://jihoonjung.tistory.com/63)
 ```
-Implement Graph into Collaborative Filtering
+1. Implement Graph into Collaborative Filtering
+2. This Paper studied modeling high-order information connections using graph theory.
 ```
 - LightGCN : (2020, SIGIR) [Simplifying and Powering Graph ConvolutionNetwork for Recommendation](hhttps://arxiv.org/abs/2002.02126)
 - CSE : [Collaborative Similarity Embedding for Recommender System](https://arxiv.org/pdf/1902.06188.pdf)

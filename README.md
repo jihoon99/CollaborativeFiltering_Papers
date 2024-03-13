@@ -11,6 +11,11 @@
 2. This Paper studied modeling high-order information connections using graph theory.
 ```
 - LightGCN : (2020, SIGIR) [Simplifying and Powering Graph ConvolutionNetwork for Recommendation](hhttps://arxiv.org/abs/2002.02126)
+```
+1. Graph has shown dramatic performance improvements on collaborative filtering problems, but it's not clear why (only experimental evidence)
+-> We will chew, bite, and taste why Graph theory works so well in this study. (Activation Function, Feature Transformation perspective)
+2. This Paper Propose a new architecture, LightGCN, based on the experimental results.
+```
 - CSE : [Collaborative Similarity Embedding for Recommender System](https://arxiv.org/pdf/1902.06188.pdf)
 - UltraGCN : [Ultra Simplification of Graph Convolutional Networks for Recommendation](https://arxiv.org/abs/2110.15114)
 - SimpleX : [A Simple and Strong Baseline for Collaborative Filtering](https://arxiv.org/pdf/1902.06188.pdf) -> [explained]()

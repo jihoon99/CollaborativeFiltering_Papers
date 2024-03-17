@@ -21,7 +21,7 @@
 ```
 
 ```
-- SimpleX : [A Simple and Strong Baseline for Collaborative Filtering](https://arxiv.org/pdf/1902.06188.pdf) -> [explained]()
+- SimpleX : [A Simple and Strong Baseline for Collaborative Filtering](https://arxiv.org/pdf/1902.06188.pdf) -> [explained](https://jihoonjung.tistory.com/65)
 ```
 1. CF is composed of (1) interaction encoder, (2) loss function, and (3) negative sampling, but (2) and (3) have not been studied in detail in this research.
 2. Proposed Cosine Contrastive Loss as a loss function

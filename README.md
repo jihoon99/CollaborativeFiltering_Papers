@@ -17,7 +17,7 @@
 2. This Paper Propose a new architecture, LightGCN, based on the experimental results.
 ```
 - CSE : [Collaborative Similarity Embedding for Recommender System](https://arxiv.org/pdf/1902.06188.pdf)
-- UltraGCN : [Ultra Simplification of Graph Convolutional Networks for Recommendation](https://arxiv.org/abs/2110.15114) -> [explained]()
+- UltraGCN : [Ultra Simplification of Graph Convolutional Networks for Recommendation](https://arxiv.org/abs/2110.15114) -> [explained](https://jihoonjung.tistory.com/65)
 ```
 
 ```

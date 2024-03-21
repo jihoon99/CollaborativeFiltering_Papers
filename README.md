@@ -19,7 +19,7 @@
 - CSE : [Collaborative Similarity Embedding for Recommender System](https://arxiv.org/pdf/1902.06188.pdf)
 - UltraGCN : [Ultra Simplification of Graph Convolutional Networks for Recommendation](https://arxiv.org/abs/2110.15114) -> [explained](https://jihoonjung.tistory.com/65)
 ```
-
+UltraGCN skips regressive message passing and uses a loss function to approximate the value after passing through an infinite number of message passing layers. This results in a convergence speed that is 10 times faster than previous studies and is ready for industrial application.
 ```
 - SimpleX : [A Simple and Strong Baseline for Collaborative Filtering](https://arxiv.org/pdf/1902.06188.pdf) -> [explained](https://jihoonjung.tistory.com/65)
 ```

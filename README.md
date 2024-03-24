@@ -5,7 +5,7 @@
 
 # Done
 ## Collaobrative Filtering
-- NGCF : [Neural Graph Collaborative Filtering](https://jihoonjung.tistory.com/63) -> [explained](https://jihoonjung.tistory.com/63)
+- NGCF : [Neural Graph Collaborative Filtering](https://jihoonjung.tistory.com/63) -> [Explained](https://jihoonjung.tistory.com/63)
 ```
 1. Implement Graph into Collaborative Filtering
 2. This Paper studied modeling high-order information connections using graph theory.
@@ -17,11 +17,11 @@
 2. This Paper Propose a new architecture, LightGCN, based on the experimental results.
 ```
 - CSE : [Collaborative Similarity Embedding for Recommender System](https://arxiv.org/pdf/1902.06188.pdf)
-- UltraGCN : [Ultra Simplification of Graph Convolutional Networks for Recommendation](https://arxiv.org/abs/2110.15114) -> [explained](https://jihoonjung.tistory.com/65)
+- UltraGCN : [Ultra Simplification of Graph Convolutional Networks for Recommendation](https://arxiv.org/abs/2110.15114) -> [Explained](https://jihoonjung.tistory.com/65)
 ```
 UltraGCN skips regressive message passing and uses a loss function to approximate the value after passing through an infinite number of message passing layers. This results in a convergence speed that is 10 times faster than previous studies and is ready for industrial application.
 ```
-- SimpleX : [A Simple and Strong Baseline for Collaborative Filtering](https://arxiv.org/pdf/1902.06188.pdf) -> [explained](https://jihoonjung.tistory.com/65)
+- SimpleX : [A Simple and Strong Baseline for Collaborative Filtering](https://arxiv.org/pdf/1902.06188.pdf) -> [Explained](https://jihoonjung.tistory.com/65)
 ```
 1. CF is composed of (1) interaction encoder, (2) loss function, and (3) negative sampling, but (2) and (3) have not been studied in detail in this research.
 2. Proposed Cosine Contrastive Loss as a loss function
@@ -31,10 +31,11 @@ UltraGCN skips regressive message passing and uses a loss function to approximat
 
 
 ## Collaborative Filtering With Training Embeddings
-- RecVAE : [a New Variational Autoencoder for Top-N Recommendations with Implicit Feedback](https://arxiv.org/abs/1912.11160)
+- RecVAE : [a New Variational Autoencoder for Top-N Recommendations with Implicit Feedback](https://arxiv.org/abs/1912.11160) -> [Explained]()
 - [Variational Autoencoders for Collaborative Filtering](https://arxiv.org/abs/1802.05814)
 
 
 ## Prerequisite
 - Denoising Diffusion Probabilistic Models : [DDPM](https://arxiv.org/abs/2006.11239)
 - Score-Based Generative Modeling through Stochastic Differential Equations : [SDEs](https://arxiv.org/abs/2011.13456)
+- 

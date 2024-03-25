@@ -38,4 +38,8 @@ UltraGCN skips regressive message passing and uses a loss function to approximat
 ## Prerequisite
 - Denoising Diffusion Probabilistic Models : [DDPM](https://arxiv.org/abs/2006.11239)
 - Score-Based Generative Modeling through Stochastic Differential Equations : [SDEs](https://arxiv.org/abs/2011.13456)
+```
+ref
+- https://junia3.github.io/blog/scoresde
+```
 - 

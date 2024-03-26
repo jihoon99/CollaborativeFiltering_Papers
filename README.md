@@ -10,6 +10,8 @@
 1. Implement Graph into Collaborative Filtering
 2. This Paper studied modeling high-order information connections using graph theory.
 ```
+- GraphSage : [Inductive Representation Learning on Large Graphs](https://arxiv.org/abs/1706.02216)
+
 - LightGCN : (2020, SIGIR) [Simplifying and Powering Graph ConvolutionNetwork for Recommendation](hhttps://arxiv.org/abs/2002.02126)
 ```
 1. Graph has shown dramatic performance improvements on collaborative filtering problems, but it's not clear why (only experimental evidence)

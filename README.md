@@ -44,4 +44,4 @@ UltraGCN skips regressive message passing and uses a loss function to approximat
 ref
 - https://junia3.github.io/blog/scoresde
 ```
-- 
+- DDIM

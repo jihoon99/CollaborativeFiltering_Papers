@@ -10,15 +10,27 @@ import argparse
 import logging
 import os
 from pathlib import Path
-
+import pandas as pd
 from utils.core_utils import load_yaml
+from utils.data_utils import (
+    build_dataset,
+    split_train_test
+)
 
 def define_argparser():
     p = argparse.ArgumentParser()
     p.add_argument('--model_config', default='./configs/SimpleX_AmazonBooks/model_config.yaml')
     p.add_argument('--data_config', default='./configs/SimpleX_AmazonBooks/dataset_config.yaml')
+    p.add_argument('--train_dataset_fn', default='./data/AmazonBooks/train.csv')
+    
     args = vars(p.parse_args())
     return args
+
+def load_dataset(path, valid_ratio=0.2):
+    train_df = pd.read_csv(path)
+    if valid_ratio:
+        train_df, valid_df = split_train_test(train_df, valid_size=valid_ratio)
+
 
 
 if __name__ == "__main__":

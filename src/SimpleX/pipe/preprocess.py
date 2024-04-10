@@ -6,8 +6,8 @@ def load_data(data_fn):
         df = pd.read_csv(data_fn)
     elif data_fn.endswith(".pkl"):
         df = pd.read_pickle(data_fn)
-    
     return df
 
-if __name__ == "__main__":
-    print("fff.csv".endswith(".csv"))
+
+def transform_dataset(data_fn):
+    

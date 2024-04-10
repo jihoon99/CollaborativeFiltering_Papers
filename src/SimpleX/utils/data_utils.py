@@ -4,6 +4,7 @@ import logging
 import numpy as np
 import multiprocessing as mp
 import gc
+from collections import defaultdict
 
 
 def split_train_test(train_df=None,  valid_ratio=0):
@@ -15,7 +16,16 @@ def split_train_test(train_df=None,  valid_ratio=0):
         train_len = train_len - valid_len
         valid_df = train_df.loc[train_idx[train_len:], :].reset_index()
         train_df = train_df.loc[train_idx[0:train_len], :].reset_index()
+    else:
+        valid_df = None
     return train_df, valid_df
+
+def get_user2items_dict(df, user_col='user_id', item_col='corpus_index'):
+    '''
+    implicit interacted user_item value
+    '''
+    user2items_dict = df.groupby([user_col]).apply(lambda x: x[item_col].tolist()).to_dict()
+    return user2items_dict
 
 
 # def build_dataset(feature_encoder, item_corpus=None, train_data=None, valid_data=None, 

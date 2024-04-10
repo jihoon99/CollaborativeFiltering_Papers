@@ -13,7 +13,7 @@ class TrainDataset(Dataset):
         self.labels = data['label']
         self.user_id = data['user_id']
         self.corpus_index = data['corpus_index']
-        self.pos_item_indexes = data['corpus_index']
+        self.pos_item_indexes = data['corpus_index'].values
         self.all_item_indexes = None
 
     def __getitem__(self, index):
@@ -36,14 +36,14 @@ def collate_fn(batch):
     labels = torch.cat([labels.view(-1, 1).float(), torch.zeros((labels.size(0), num_negs))], dim=1) # [1,1,1,1,1] -> [1,0,0,0,], [1,0,0,0,0]
     return users, items, labels
 
-def TrainLoader(DataLoader):
+class TrainLoader(DataLoader):
     def __init__(
             self, 
             data, 
             number_of_items,
             user_item, 
             config,
-            sampling_replace=False,
+            sampling_replace=True,
             batch_size=32, 
             shuffle=True,
             num_workers=3, 
@@ -55,7 +55,7 @@ def TrainLoader(DataLoader):
         self.user_item = user_item
         self.num_negs = num_negs
         self.dataset = TrainDataset(data, user_item)
-        super(TrainDataset, self).__init__(
+        super(TrainLoader, self).__init__(
             dataset=self.dataset,
             batch_size = batch_size,
             shuffle=shuffle,
@@ -95,19 +95,19 @@ def TrainLoader(DataLoader):
             ):
         
         neg_item_indexes = self.sampling(
-            num_item = number_of_items,
+            num_items = number_of_items,
             num_data = num_data,
             num_negs = num_negs,
             replace = sampling_replace
         )
 
         self.dataset.all_item_indexes = np.hstack(
-            [self.dataset.pos_item_indees.reshape(-1,1),
+            [self.dataset.pos_item_indexes.reshape(-1,1),
              neg_item_indexes]
         )
 
     def sampling(self, num_items, num_data, num_negs, sampling_probs=None, replace=False):
-        if self.config.seed is not None:
+        if self.config.seed:
             np.random.seed(self.config.seed)
         if sampling_probs is None:
             sampling_probs = np.ones(num_items)/num_items
@@ -119,8 +119,23 @@ def TrainLoader(DataLoader):
 
 if __name__ == "__main__":
     import pandas as pd
-    from ..utils.data_utils import get_user2items_dict
+    import os
+    import sys
+    sys.path.append("/Users/rainism/Desktop/CollaborativeFiltering_Papers/src/SimpleX/utils/")
+    from data_utils import get_user2items_dict
+
+    class ff:
+        seed = 42
+
+    config = ff
 
     t_data = pd.read_csv("/Users/rainism/Desktop/CollaborativeFiltering_Papers/src/SimpleX/data/AmazonBooks/train.csv")
     user_item = get_user2items_dict(t_data)
-    aa = TrainLoader(user_item, )
+    aa = TrainLoader(
+        data = t_data,
+        number_of_items = len(t_data),
+        user_item = user_item, 
+        config = config
+        )
+    
+    print(next(iter(aa)))

@@ -123,6 +123,7 @@ class SimpleX(nn.Module):
     def __init__(
             self, 
             num_user, 
+            num_item,
             embedding_dim=64, 
             enable_bias=False,
             num_negs=500, 
@@ -136,11 +137,33 @@ class SimpleX(nn.Module):
             similarity_score='dot'):
         
         self.siilarity_score = similarity_score
+        # user, item embedding을 따로 운영할건지, 같이 운영할건지 선택
+        # adj mat이 있을 경우, 같이 해야함.
         self.user_embedding = EmbeddingLayer(num_user, embedding_dim)
-        self.aggregator = self.aggregator()
+        self.item_embedding = EmbeddingLayer(num_item, embedding_dim)
+        self.aggregator = Aggregator(
+            embedding_dim, 
+            gamma=gamma, 
+            aggregator_mode=aggregation_mode, 
+            dropout_rate=attention_dropout
+            )
+        self.enable_bias = enable_bias
+        if self.enable_bias:
+            # 이 부분은 수정 예정
+            self.user_bias = EmbeddingLayer(num_user, 1,
+                                            disable_sharing_pretrain=True)
+            self.item_bias = EmbeddingLayer(num_user, 1, 
+                                            disable_sharing_pretrain=True,)
+            self.global_bias = nn.Parameter(torch.zeros(1))
+        
+        self.dropout = nn.Dropout(net_dropout)
+    
+    def forward(self, inputs):
+        users, items, labels = inputs
+        user_vecs = self.user_
 
 
-class BehaviorAggregator(nn.Module):
+class Aggregator(nn.Module):
     def __init__(self, embedding_dim, gamma=.5, aggregator_mode='mean', dropout_rate=.0):
         self.aggregator_mode = aggregator_mode
         self.gamma = gamma

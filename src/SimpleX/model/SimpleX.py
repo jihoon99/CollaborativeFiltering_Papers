@@ -23,7 +23,7 @@ import torch.nn.functional as F
 import numpy as np
 
 
-class SimpleX(MatchingModel):
+class SimpleX1(MatchingModel):
     def __init__(self, 
                  feature_map, 
                  model_id="SimpleX", 
@@ -113,20 +113,45 @@ class SimpleX(MatchingModel):
         return item_vec
 
 
+
+'''
+learning_rate
+gpu = 
+'''
+
+class SimpleX(nn.Module):
+    def __init__(
+            self, 
+            num_user, 
+            embedding_dim=64, 
+            enable_bias=False,
+            num_negs=500, 
+            net_dropout=.1, 
+            aggregation_mode='mean', 
+            gamma=0.5,
+            attention_dropout=.0, 
+            batch_norm=False, 
+            net_regularizer=None, 
+            embedding_regularizer=None,
+            similarity_score='dot'):
+        
+        self.siilarity_score = similarity_score
+        self.user_embedding = EmbeddingLayer(num_user, embedding_dim)
+        self.aggregator = self.aggregator()
+
+
 class BehaviorAggregator(nn.Module):
-    def __init__(self, embedding_dim, gamma=0.5, aggregator="mean", dropout_rate=0.):
-        super(BehaviorAggregator, self).__init__()
-        self.aggregator = aggregator
+    def __init__(self, embedding_dim, gamma=.5, aggregator_mode='mean', dropout_rate=.0):
+        self.aggregator_mode = aggregator_mode
         self.gamma = gamma
         self.W_v = nn.Linear(embedding_dim, embedding_dim, bias=False)
-        if self.aggregator in ["user_attention", "self_attention"]:
-            self.W_k = nn.Sequential(nn.Linear(embedding_dim, embedding_dim),
-                                     nn.Tanh())
+        if self.aggregator_mode in ['user_attention', 'self_attention']:
+            self.W_k = nn.Tanh(nn.Linear(embedding_dim, embedding_dim))
             self.dropout = nn.Dropout(dropout_rate) if dropout_rate > 0 else None
-            if self.aggregator == "self_attention":
+            if self.aggregator_mode == 'self_attention':
                 self.W_q = nn.Parameter(torch.Tensor(embedding_dim, 1))
                 nn.init.xavier_normal_(self.W_q)
-
+    
     def forward(self, uid_emb, sequence_emb):
         out = uid_emb
         if self.aggregator == "mean":
